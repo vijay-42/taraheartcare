@@ -4,14 +4,15 @@ import { MotionConfig } from "motion/react";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import MobileDock from "@/components/MobileDock";
+import RevealObserver from "@/components/RevealObserver";
 import SmoothScroll from "@/components/SmoothScroll";
 import { clinic } from "@/lib/clinic";
 import "./globals.css";
 
 // Classical serif to echo the "TARA" wordmark in the logo.
-const serif = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "500", "600"], style: ["normal", "italic"], variable: "--font-instrument" });
+const serif = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "500"], style: ["normal", "italic"], variable: "--font-instrument" });
 const sans = Geist({ subsets: ["latin"], variable: "--font-geist" });
-const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
+const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", preload: false });
 
 export const metadata: Metadata = {
   title: {
@@ -36,11 +37,16 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${serif.variable} ${sans.variable} ${mono.variable}`}>
+    <html lang="en" className={`${serif.variable} ${sans.variable} ${mono.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Marks JS as available before first paint, so scroll-reveal styles only apply when they can run. */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+      </head>
       <body className="min-h-screen bg-bone">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <MotionConfig reducedMotion="user">
           <SmoothScroll />
+          <RevealObserver />
           <Header />
           <main>{children}</main>
           <Footer />

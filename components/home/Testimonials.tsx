@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { clinic } from "@/lib/clinic";
-import { Lines } from "../motion";
+import { Lines } from "../reveal";
 
 /** Drag-to-browse patient stories. */
 export default function Testimonials() {

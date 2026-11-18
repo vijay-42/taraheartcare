@@ -5,7 +5,8 @@ import { useRef, useState } from "react";
 import { clinic, tel } from "@/lib/clinic";
 import Button from "../Button";
 import { Phone } from "../Icons";
-import { Lines, Magnetic } from "../motion";
+import { Magnetic } from "../motion";
+import { Lines } from "../reveal";
 
 const STEPS = [
   { k: "Call", t: "You call our 24/7 line", d: "Describe the symptoms. Don't drive yourself, and chew a 300 mg aspirin if you're not allergic." },
@@ -25,7 +26,7 @@ export default function GoldenHour() {
   return (
     <section className="on-dark relative overflow-hidden bg-night py-28 text-white sm:py-36">
       <div className="grid-paper-dark absolute inset-0" />
-      <div className="absolute left-1/2 top-0 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-pulse/20 blur-[140px]" />
+      <div className="absolute left-1/2 -top-40 h-[800px] w-[1400px] -translate-x-1/2 bg-[radial-gradient(ellipse_at_center,rgb(212_192_158/0.16)_0%,transparent_60%)]" />
 
       <div className="container-x relative">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-end">

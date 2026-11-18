@@ -34,7 +34,7 @@ export default function Portrait({ className = "" }: { className?: string }) {
           </div>
         )}
       </motion.div>
-      <div className="absolute inset-x-4 bottom-4 flex items-center justify-between rounded-2xl bg-paper/85 px-5 py-4 backdrop-blur-md">
+      <div className="absolute inset-x-4 bottom-4 flex items-center justify-between rounded-2xl bg-paper/95 px-5 py-4">
         <div>
           <p className="font-serif text-[22px] leading-none">{clinic.doctor.name}</p>
           <p className="label mt-2 text-mute">{clinic.doctor.role}</p>

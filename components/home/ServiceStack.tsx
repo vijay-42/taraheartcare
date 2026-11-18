@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import { services, type Service } from "@/lib/services";
 import { ArrowUpRight } from "../Icons";
-import { Lines } from "../motion";
+import { Lines } from "../reveal";
 import ServiceArt from "../ServiceArt";
 
 const THEMES = [

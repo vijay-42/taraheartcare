@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Button from "@/components/Button";
 import Facilities from "@/components/Facilities";
-import { Lines, Reveal, ScrollInk } from "@/components/motion";
+import { ScrollInk } from "@/components/motion";
+import { Lines, Reveal } from "@/components/reveal";
 import PageHero from "@/components/PageHero";
 import Portrait from "@/components/Portrait";
 import { clinic } from "@/lib/clinic";

@@ -101,19 +101,13 @@ export const clinic = {
     6: [["09:00", "13:00"], ["17:00", "21:00"]],
   } as Record<number, [string, string][]>,
 
+  hoursShort: "Mon–Sat 9–1 & 5–9 · Sun 10–1",
   hoursDisplay: [
     { day: "Mon – Sat", time: "9:00 AM – 1:00 PM · 5:00 – 9:00 PM" },
     { day: "Sunday", time: "10:00 AM – 1:00 PM" },
     { day: "Emergency & Cath Lab", time: "24 × 7 × 365", emphasis: true },
   ],
 
-  // ⚠️ Replace with your real figures before going live.
-  stats: [
-    { value: 20, suffix: "+", label: "Years in cardiology" },
-    { value: 10000, suffix: "+", label: "Patients cared for" },
-    { value: 2500, suffix: "+", label: "Cath lab procedures" },
-    { value: 24, suffix: "/7", label: "Emergency response" },
-  ],
 
   // ⚠️ SAMPLE REVIEWS. Replace with genuine patient reviews (e.g. from Google) before going live.
   testimonials: [

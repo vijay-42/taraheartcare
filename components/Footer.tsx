@@ -9,7 +9,8 @@ import Button from "./Button";
 import ECGMonitor from "./ECGMonitor";
 import { Phone, WhatsApp } from "./Icons";
 import Logo from "./Logo";
-import { Lines, Magnetic } from "./motion";
+import { Magnetic } from "./motion";
+import { Lines } from "./reveal";
 import { useOpenStatus } from "./useOpenStatus";
 
 export default function Footer() {

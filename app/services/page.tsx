@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Button from "@/components/Button";
-import { Lines, Reveal } from "@/components/motion";
+import { Lines, Reveal } from "@/components/reveal";
 import PageHero from "@/components/PageHero";
 import ServiceRows from "@/components/ServiceRows";
 

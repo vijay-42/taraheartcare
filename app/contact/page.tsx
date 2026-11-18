@@ -4,7 +4,7 @@ import BookingForm from "@/components/BookingForm";
 import Button from "@/components/Button";
 import ContactStatus from "@/components/ContactStatus";
 import { Mail, Phone, Pin, WhatsApp } from "@/components/Icons";
-import { Reveal } from "@/components/motion";
+import { Reveal } from "@/components/reveal";
 import PageHero from "@/components/PageHero";
 import { clinic, mapsEmbed, mapsSearch, tel, waLink } from "@/lib/clinic";
 
@@ -88,7 +88,7 @@ export default function ContactPage() {
               referrerPolicy="no-referrer-when-downgrade"
               className="block h-[460px] w-full grayscale transition duration-700 group-hover:grayscale-0"
             />
-            <span className="label pointer-events-none absolute left-5 top-5 rounded-full bg-paper/90 px-4 py-2 backdrop-blur">Find us · {clinic.address.line2}</span>
+            <span className="label pointer-events-none absolute left-5 top-5 rounded-full bg-paper/95 px-4 py-2">Find us · {clinic.address.line2}</span>
           </div>
         </div>
       </section>

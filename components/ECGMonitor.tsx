@@ -159,10 +159,13 @@ export default function ECGMonitor({
     if (interactive) window.addEventListener("pointermove", onMove, { passive: true });
 
     resize();
-    if (!reduce) raf = requestAnimationFrame(tick);
+    // Start the animation once the browser is idle, so it never competes with first paint.
+    const ric = (window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number }).requestIdleCallback;
+    const startId = reduce ? 0 : ric ? ric(() => (raf = requestAnimationFrame(tick)), { timeout: 1500 }) : window.setTimeout(() => (raf = requestAnimationFrame(tick)), 800);
 
     return () => {
       cancelAnimationFrame(raf);
+      if (startId) (window.cancelIdleCallback ?? window.clearTimeout)(startId);
       ro.disconnect();
       io.disconnect();
       window.removeEventListener("pointermove", onMove);

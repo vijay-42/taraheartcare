@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Accordion from "@/components/Accordion";
 import Button from "@/components/Button";
 import { Alert, ArrowUpRight, Phone } from "@/components/Icons";
-import { Lines, Marquee, Reveal } from "@/components/motion";
+import { Marquee } from "@/components/motion";
+import { Lines, Reveal } from "@/components/reveal";
 import PageHero from "@/components/PageHero";
 import PrepGuide from "@/components/PrepGuide";
 import { clinic, tel } from "@/lib/clinic";
@@ -90,7 +91,7 @@ export default function ResourcesPage() {
           </div>
           <ul className="grid gap-px overflow-hidden rounded-[28px] bg-white/20 sm:grid-cols-2">
             {SYMPTOMS.map((s, i) => (
-              <Reveal as="li" key={s} delay={i * 0.05} className="bg-pulse-deep/40 p-7 backdrop-blur">
+              <Reveal as="li" key={s} delay={i * 0.05} className="bg-pulse-deep/40 p-7">
                 <span className="label text-white/50">0{i + 1}</span>
                 <p className="mt-6 font-serif text-[26px] leading-tight">{s}</p>
               </Reveal>

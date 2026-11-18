@@ -14,7 +14,8 @@ export default function Logo({ light = false, className = "h-[66px]" }: { light?
         alt="TARA Heart Care"
         width={152}
         height={143}
-        priority
+        priority={!light}
+        unoptimized
         className={`w-auto transition-transform duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.04] ${className}`}
       />
     </Link>

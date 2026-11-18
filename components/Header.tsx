@@ -75,14 +75,14 @@ export default function Header() {
         {/* Main bar */}
         <div
           className={`transition-[background,border,backdrop-filter] duration-500 ${
-            scrolled || mega ? "border-b border-line/70 bg-bone/85 backdrop-blur-xl" : "border-b border-transparent"
+            scrolled || mega ? "border-b border-line/70 bg-bone/95" : "border-b border-transparent"
           }`}
         >
           <div className="container-x flex h-[76px] items-center justify-between gap-6">
             <Logo />
 
             <nav className="hidden lg:block" aria-label="Main">
-              <ul className="flex items-center gap-1 rounded-full border border-ink/10 bg-paper/60 p-1 backdrop-blur">
+              <ul className="flex items-center gap-1 rounded-full border border-ink/10 bg-paper/80 p-1">
                 {NAV.map((n) => (
                   <li key={n.href} onMouseEnter={() => setMega(!!n.mega)}>
                     <Link

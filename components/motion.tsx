@@ -14,67 +14,6 @@ import { useEffect, useRef, type ReactNode } from "react";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
-/* Fade + rise when scrolled into view */
-export function Reveal({
-  children,
-  delay = 0,
-  y = 36,
-  className,
-  as = "div",
-}: {
-  children: ReactNode;
-  delay?: number;
-  y?: number;
-  className?: string;
-  as?: "div" | "li" | "article" | "section";
-}) {
-  const M = motion[as];
-  return (
-    <M
-      className={className}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-8% 0px" }}
-      transition={{ duration: 1, ease: EASE, delay }}
-    >
-      {children}
-    </M>
-  );
-}
-
-/* Headline lines slide up from behind a mask, one after another */
-export function Lines({
-  lines,
-  className,
-  delay = 0,
-  immediate = false,
-}: {
-  lines: ReactNode[];
-  className?: string;
-  delay?: number;
-  immediate?: boolean;
-}) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-5% 0px" });
-  const show = immediate || inView;
-  return (
-    <span ref={ref} className={className}>
-      {lines.map((line, i) => (
-        <span key={i} className="block overflow-hidden pb-[0.08em] -mb-[0.08em]">
-          <motion.span
-            className="block will-change-transform"
-            initial={{ y: "105%" }}
-            animate={show ? { y: "0%" } : undefined}
-            transition={{ duration: 1.1, ease: EASE, delay: delay + i * 0.09 }}
-          >
-            {line}
-          </motion.span>
-        </span>
-      ))}
-    </span>
-  );
-}
-
 /* Paragraph that "inks in" word by word as you scroll through it */
 export function ScrollInk({ text, className }: { text: string; className?: string }) {
   const ref = useRef<HTMLParagraphElement>(null);
@@ -100,7 +39,7 @@ function Word({ children, progress, range }: { children: string; progress: Motio
 }
 
 /* Number that counts up once visible */
-export function Counter({ to, suffix = "", className }: { to: number; suffix?: string; className?: string }) {
+export function Counter({ to, suffix = "", className, plain = false }: { to: number; suffix?: string; className?: string; plain?: boolean }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-10% 0px" });
   useEffect(() => {
@@ -109,10 +48,10 @@ export function Counter({ to, suffix = "", className }: { to: number; suffix?: s
     const c = animate(0, to, {
       duration: 2.2,
       ease: EASE,
-      onUpdate: (v) => (el.textContent = Math.round(v).toLocaleString("en-IN") + suffix),
+      onUpdate: (v) => (el.textContent = (plain ? String(Math.round(v)) : Math.round(v).toLocaleString("en-IN")) + suffix),
     });
     return () => c.stop();
-  }, [inView, to, suffix]);
+  }, [inView, to, suffix, plain]);
   return (
     <span ref={ref} className={className}>
       0{suffix}

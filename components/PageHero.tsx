@@ -1,7 +1,8 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import ECGMonitor from "./ECGMonitor";
-import { Lines, Reveal } from "./motion";
+import HeartMotif from "./HeartMotif";
+import { Lines } from "./reveal";
 
 export default function PageHero({
   crumbs,
@@ -19,6 +20,8 @@ export default function PageHero({
   return (
     <section className="relative overflow-hidden pt-[150px]">
       <div className="grid-paper pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,#000,transparent_85%)]" />
+      <div className="pointer-events-none absolute -right-48 -top-20 size-[900px] bg-[radial-gradient(circle,var(--color-blush)_0%,transparent_62%)] opacity-70" />
+      <HeartMotif className="pointer-events-none absolute -right-10 top-32 hidden w-[420px] text-pulse/[0.08] lg:block" strokeWidth={0.8} />
       <div className="container-x relative">
         <nav aria-label="Breadcrumb" className="label flex flex-wrap items-center gap-2 text-mute">
           {crumbs.map((c, i) => (
@@ -37,9 +40,9 @@ export default function PageHero({
           </div>
           {aside}
         </div>
-        <Reveal delay={0.4}>
-          <p className="mt-10 max-w-2xl text-[18px] leading-relaxed text-ink-soft">{intro}</p>
-        </Reveal>
+        <p className="intro-fade mt-10 max-w-2xl text-[18px] leading-relaxed text-ink-soft" style={{ animationDelay: "0.3s" }}>
+          {intro}
+        </p>
       </div>
       <div className="mt-14 opacity-80">
         <ECGMonitor height={100} amplitude={0.3} lineWidth={1.6} />

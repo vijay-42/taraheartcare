@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import { Lines } from "./motion";
+import { Lines } from "./reveal";
 
 const ITEMS = [
   { t: "Cath Lab", d: "Flat-panel imaging with low radiation dose for angiography, angioplasty and devices. Ready 24/7.", tone: "bg-pulse text-on-pulse" },

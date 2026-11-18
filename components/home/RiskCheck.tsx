@@ -5,7 +5,8 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { clinic, tel } from "@/lib/clinic";
 import { Alert, Check } from "../Icons";
-import { EASE, Lines } from "../motion";
+import { EASE } from "../motion";
+import { Lines } from "../reveal";
 
 const AGES = [
   { label: "Under 35", pts: 0 },

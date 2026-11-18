@@ -9,7 +9,7 @@ export default function MobileDock() {
   return (
     <nav
       aria-label="Quick actions"
-      className="fixed inset-x-3 bottom-3 z-40 grid grid-cols-[1fr_1fr_1.3fr] gap-1.5 rounded-full border border-ink/10 bg-paper/90 p-1.5 shadow-[0_20px_50px_-15px_rgba(0,0,0,.35)] backdrop-blur-xl lg:hidden"
+      className="fixed inset-x-3 bottom-3 z-40 grid grid-cols-[1fr_1fr_1.3fr] gap-1.5 rounded-full border border-ink/10 bg-paper/95 p-1.5 shadow-[0_20px_50px_-15px_rgba(0,0,0,.35)] lg:hidden"
     >
       <Link href="/contact#book" className="flex items-center justify-center gap-2 rounded-full py-3 text-[13px] font-medium text-ink">
         <Calendar className="size-4" /> Book

@@ -8,7 +8,7 @@ import { packages, type Service } from "@/lib/services";
 import Accordion from "./Accordion";
 import Button from "./Button";
 import { ArrowUpRight, Check, Phone } from "./Icons";
-import { Lines, Reveal } from "./motion";
+import { Lines, Reveal } from "./reveal";
 
 export default function ServiceDetail({ service, next }: { service: Service; next: Service }) {
   const [active, setActive] = useState(service.items[0].id);
