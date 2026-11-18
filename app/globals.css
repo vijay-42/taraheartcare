@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+/* ==========================================================
+   TARA Heart Care — design tokens (from the logo)
+   Logo cream, wine ink, brand maroon #6E1B2F and taupe-gold
+   #908070. Dark sections are deep wine with a champagne accent.
+   ========================================================== */
+@theme {
+  --color-bone: #f5efe3; /* logo background */
+  --color-paper: #fbf8f1;
+  --color-sand: #ebe3d4;
+  --color-line: #dcd2c1;
+  --color-ink: #24171b;
+  --color-ink-soft: #4f4146;
+  --color-mute: #8d8070; /* logo taupe */
+  --color-pulse: #6e1b2f; /* logo maroon: the brand accent */
+  --color-pulse-deep: #521222;
+  --color-on-pulse: #ffffff;
+  --color-gold: #a8916f;
+  --color-champagne: #d4c09e;
+  --color-blush: #ecd9d2;
+  --color-night: #1e1014; /* deep wine */
+  --color-night-2: #2a171d;
+  --color-mint: #7fb59a; /* "open" indicator, muted sage */
+
+  --font-serif: var(--font-instrument), "Times New Roman", serif;
+  --font-sans: var(--font-geist), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-beat: beat 0.833s ease-in-out infinite;
+  --animate-ping-slow: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
+  @keyframes beat {
+    0%, 100% { transform: scale(1); }
+    12% { transform: scale(1.18); }
+    24% { transform: scale(0.96); }
+    36% { transform: scale(1.1); }
+    55% { transform: scale(1); }
+  }
+  @keyframes ping-slow {
+    75%, 100% { transform: scale(2.4); opacity: 0; }
+  }
+}
+
+html {
+  background: var(--color-bone);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+body {
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+}
+
+/* Cormorant defaults to old-style figures; use lining numerals for stats & readouts. */
+.font-serif, .display { font-variant-numeric: lining-nums; }
+
+::selection { background: var(--color-pulse); color: #fff; }
+
+/* Subtle paper grain over everything, so flat colour never looks "default". */
+body::after {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Inside dark (wine) sections the accent becomes champagne so it stays legible. */
+.on-dark {
+  --color-pulse: #d4c09e;
+  --color-pulse-deep: #bfa880;
+  --color-on-pulse: #1e1014;
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-12; }
+  .label { @apply font-mono text-[11px] uppercase tracking-[0.18em]; }
+  .display { @apply font-serif font-medium leading-[0.95] tracking-[-0.015em]; }
+  .hairline { @apply border-line; }
+  .grid-paper {
+    background-image:
+      linear-gradient(to right, rgb(18 19 20 / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(18 19 20 / 0.06) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .grid-paper-dark {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .fade-x { mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); }
+  .text-outline { -webkit-text-stroke: 1.5px rgb(212 192 158 / 0.38); color: transparent; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+}
