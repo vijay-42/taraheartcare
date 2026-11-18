@@ -78,6 +78,44 @@ export const clinic = {
     ],
     languages: ["English", "Kannada", "Hindi", "Tulu", "Malayalam"],
   },
+  // ⚠️ SAMPLE CARE TEAM. Replace names, qualifications, photos and OPD days
+  // with your real consultants before going live (or delete entries you don't need).
+  // days: 0 = Sunday … 6 = Saturday.
+  team: [
+    {
+      name: "[Doctor name]",
+      role: "Consultant Cardiologist",
+      specialty: "Cardiac imaging & echocardiography",
+      quals: "MBBS · MD · DM (Cardiology)",
+      years: 12,
+      photo: null as string | null,
+      focus: ["2D Echo & stress echo", "Valve disease", "Heart failure clinic"],
+      days: [1, 2, 4, 6],
+      languages: ["English", "Kannada", "Hindi"],
+    },
+    {
+      name: "[Doctor name]",
+      role: "Consultant Cardiologist",
+      specialty: "Preventive cardiology & hypertension",
+      quals: "MBBS · MD · DNB (Cardiology)",
+      years: 9,
+      photo: null as string | null,
+      focus: ["Hypertension clinic", "Cholesterol & diabetes risk", "Executive heart checks"],
+      days: [1, 3, 5, 6],
+      languages: ["English", "Kannada", "Tulu"],
+    },
+    {
+      name: "[Doctor name]",
+      role: "Cardiac Anaesthesiologist",
+      specialty: "Cath lab & critical care",
+      quals: "MBBS · MD (Anaesthesia) · PDF (Cardiac Anaesthesia)",
+      years: 10,
+      photo: null as string | null,
+      focus: ["Procedural sedation", "Cardiac ICU", "24×7 emergency cover"],
+      days: [0, 1, 2, 3, 4, 5, 6],
+      languages: ["English", "Hindi", "Malayalam"],
+    },
+  ],
   phones: {
     emergency: "+91 00000 00000",
     appointments: "+91 00000 00000",

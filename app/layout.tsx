@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import MobileDock from "@/components/MobileDock";
 import RevealObserver from "@/components/RevealObserver";
+import ScrollTop from "@/components/ScrollTop";
 import SmoothScroll from "@/components/SmoothScroll";
 import { clinic } from "@/lib/clinic";
 import "./globals.css";
@@ -51,6 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main>{children}</main>
           <Footer />
           <MobileDock />
+          <ScrollTop />
         </MotionConfig>
       </body>
     </html>

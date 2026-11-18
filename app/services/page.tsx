@@ -3,6 +3,7 @@ import Button from "@/components/Button";
 import { Lines, Reveal } from "@/components/reveal";
 import PageHero from "@/components/PageHero";
 import ServiceRows from "@/components/ServiceRows";
+import SpecialityGrid from "@/components/SpecialityGrid";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -24,6 +25,7 @@ export default function ServicesPage() {
         title={["Care for every", <em key="s" className="text-pulse">stage of the heart.</em>]}
         intro="Three connected specialities, one team. Whether you need a routine checkup or an emergency angioplasty, you'll be looked after by the same people who know your heart."
       />
+      <SpecialityGrid eyebrow="Every service at a glance" />
       <section className="py-16 sm:py-24">
         <ServiceRows />
       </section>

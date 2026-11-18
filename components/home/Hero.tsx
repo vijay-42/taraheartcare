@@ -1,13 +1,11 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { clinic, tel } from "@/lib/clinic";
 import Button from "../Button";
 import ECGMonitor from "../ECGMonitor";
-import HeartMotif from "../HeartMotif";
 import { ArrowUpRight, Calendar, Heart, Phone } from "../Icons";
 import { Magnetic } from "../motion";
 import { Lines } from "../reveal";
@@ -17,158 +15,128 @@ import { useOpenStatus } from "../useOpenStatus";
 const d = (s: number): CSSProperties => ({ animationDelay: `${s}s` });
 
 export default function Hero() {
-  // Gentle tilt of the portrait toward the cursor (enhancement only).
-  const mx = useMotionValue(0);
-  const my = useMotionValue(0);
-  const rx = useSpring(useTransform(my, [-0.5, 0.5], [4, -4]), { stiffness: 120, damping: 20 });
-  const ry = useSpring(useTransform(mx, [-0.5, 0.5], [-5, 5]), { stiffness: 120, damping: 20 });
+  const doc = clinic.doctor;
+  const ledger: [string, string, string][] = [
+    ["2005", "MD, General Medicine", "AIIMS, New Delhi"],
+    ["2007", "DM, Cardiology", "PGIMER, Chandigarh"],
+    ["2013", "Professor of Cardiology", "Youngest in India"],
+    ["N°\u00a01", "LAA closures", "Most performed in India"],
+  ];
 
   return (
     <section className="relative px-3 pt-[118px] sm:px-4 lg:px-5">
-      {/* ── Banner frame ───────────────────────────────────── */}
-      <div
-        className="on-dark relative isolate overflow-hidden rounded-[28px] bg-night text-white sm:rounded-[40px]"
-        onPointerMove={(e) => {
-          if (e.pointerType !== "mouse") return;
-          const r = e.currentTarget.getBoundingClientRect();
-          mx.set((e.clientX - r.left) / r.width - 0.5);
-          my.set((e.clientY - r.top) / r.height - 0.5);
-        }}
-      >
-        {/* Atmosphere: cheap gradients, no blur filters */}
-        <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_70%_75%_at_80%_38%,#6e1b2f_0%,transparent_65%)]" />
-        <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_45%_50%_at_0%_100%,rgb(212_192_158/0.12)_0%,transparent_70%)]" />
-        <div className="grid-paper-dark pointer-events-none absolute inset-0 -z-10 opacity-60 [mask-image:linear-gradient(to_bottom,#000,transparent_90%)]" />
-        <HeartMotif className="pointer-events-none absolute -left-24 top-6 -z-10 hidden w-[600px] text-pulse/[0.09] lg:block" strokeWidth={0.7} />
+      <div className="on-dark relative isolate overflow-hidden rounded-[20px] bg-night text-white sm:rounded-[28px]">
+        {/* One quiet light source, nothing else */}
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_60%_80%_at_30%_0%,rgb(110_27_47/0.55)_0%,transparent_70%)]" />
 
-        <div className="container-x relative grid items-center gap-14 pb-[150px] pt-12 sm:pt-16 lg:min-h-[min(calc(100svh-210px),820px)] lg:grid-cols-[1.12fr_0.88fr] lg:gap-10 lg:pb-[120px]">
-          {/* Copy */}
-          <div>
-            <p className="intro-fade label inline-flex w-fit items-center gap-3 rounded-full border border-white/15 bg-white/[0.04] py-2 pl-2 pr-4 text-pulse" style={d(0.05)}>
-              <span className="grid size-6 place-items-center rounded-full bg-pulse text-on-pulse">
-                <Heart className="size-3 animate-beat" />
-              </span>
-              <span className="sm:hidden">Cardiology · 24/7 Cath Lab</span>
-              <span className="hidden sm:inline">Cardiology · Diagnostics · 24/7 Cath Lab</span>
-            </p>
+        <div className="relative grid lg:grid-cols-12">
+          {/* ── Copy column ─────────────────────────────────── */}
+          <div className="relative px-6 pb-12 pt-6 sm:px-10 lg:col-span-7 lg:px-14 lg:pb-[150px] xl:px-16">
+            {/* Masthead */}
+            <div className="intro-fade flex items-center justify-between gap-6 border-b border-white/12 pb-4 font-mono text-[10.5px] uppercase tracking-[0.2em] text-white/50" style={d(0.05)}>
+              <span>Interventional cardiology</span>
+              <span className="hidden sm:inline">Cath Lab · 24 × 7</span>
+            </div>
 
-            <h1 className="display mt-8 text-[clamp(3rem,6.1vw,6.3rem)] text-white">
+            <h1 className="display mt-14 text-[clamp(3rem,6.4vw,6.6rem)] leading-[0.92] text-white lg:mt-20">
               <Lines
                 immediate
                 delay={0.1}
                 lines={[
                   "Every heartbeat",
                   <>
-                    deserves <em className="text-pulse">undivided</em>
+                    deserves <em className="font-normal text-pulse">undivided</em>
                   </>,
                   "attention.",
                 ]}
               />
             </h1>
 
-            <p className="intro-fade mt-8 max-w-[31rem] text-[17px] leading-relaxed text-white/70" style={d(0.35)}>
-              Prevention, precise diagnosis and a round-the-clock Cath Lab, led by {clinic.doctor.name}: AIIMS and PGIMER trained, with {clinic.doctor.years}+ years in interventional cardiology.
-            </p>
-
-            <div className="intro-fade mt-9 flex flex-wrap gap-3" style={d(0.45)}>
-              <Magnetic>
-                <Button href="/contact#book" variant="light">Book a consultation</Button>
-              </Magnetic>
-              <Magnetic>
-                <Button href={tel(clinic.phones.emergency)} variant="pulse" icon={<Phone className="size-4" />}>
-                  Emergency care
-                </Button>
-              </Magnetic>
+            <div className="mt-10 grid gap-8 sm:grid-cols-[1fr_auto] sm:items-end lg:mt-14">
+              <p className="intro-fade max-w-[27rem] text-[16.5px] leading-[1.65] text-white/65" style={d(0.35)}>
+                Prevention, precise diagnosis and a round-the-clock Cath Lab, under one cardiologist who has spent {doc.years}+ years inside the arteries of the heart.
+              </p>
+              <div className="intro-fade flex flex-wrap gap-3" style={d(0.45)}>
+                <Magnetic>
+                  <Button href="/contact#book" variant="light">Book a consultation</Button>
+                </Magnetic>
+              </div>
             </div>
 
-            <dl className="intro-fade mt-12 grid max-w-[31rem] grid-cols-3 divide-x divide-white/15 border-t border-white/15 pt-6" style={d(0.55)}>
-              {[
-                [`${clinic.doctor.years}+`, "Years of expertise"],
-                ["24×7", "Cath Lab on call"],
-                ["50+", "Research papers"],
-              ].map(([v, l], i) => (
-                <div key={l} className={i ? "pl-5" : "pr-5"}>
-                  <dt className="font-serif text-[clamp(1.9rem,2.6vw,2.5rem)] leading-none text-white">{v}</dt>
-                  <dd className="label mt-2 !text-[10px] leading-snug text-white/45">{l}</dd>
+            {/* Credentials ledger: typeset like a CV, not stat bubbles */}
+            <dl className="intro-fade mt-14 grid border-t border-white/12 sm:grid-cols-2" style={d(0.55)}>
+              {ledger.map(([k, a, b], i) => (
+                <div
+                  key={a}
+                  className={`grid grid-cols-[4.5rem_1fr] items-baseline gap-4 border-b border-white/12 py-4 ${i % 2 === 0 ? "sm:border-r sm:pr-6" : "sm:pl-6"}`}
+                >
+                  <dt className="font-serif text-[22px] leading-none text-pulse">{k}</dt>
+                  <dd className="text-[13.5px] leading-snug text-white/80">
+                    {a}
+                    <span className="block text-white/40">{b}</span>
+                  </dd>
                 </div>
               ))}
             </dl>
+
+            <a
+              href={tel(clinic.phones.emergency)}
+              className="intro-fade group mt-8 inline-flex items-center gap-3 text-[14px] text-white/70 transition hover:text-white"
+              style={d(0.65)}
+            >
+              <span className="relative flex size-2">
+                <span className="absolute inline-flex size-full animate-ping-slow rounded-full bg-pulse" />
+                <span className="relative inline-flex size-2 rounded-full bg-pulse" />
+              </span>
+              Chest pain right now? Call <span className="border-b border-white/30 pb-px font-medium text-white group-hover:border-white">{clinic.phones.emergency}</span>
+              <Phone className="size-3.5" />
+            </a>
           </div>
 
-          {/* Portrait */}
-          <motion.div style={{ rotateX: rx, rotateY: ry, transformPerspective: 1200 }} className="relative mx-auto aspect-[4/5] w-full max-w-[440px]">
-            <div className="pointer-events-none absolute -inset-16 bg-[radial-gradient(circle,rgb(212_192_158/0.2)_0%,transparent_62%)]" />
-            {/* Concentric champagne arches: frame the photo instead of fighting it */}
-            <div className="intro-fade absolute -inset-[14px] rounded-t-full rounded-b-[44px] border border-pulse/35" style={d(0.8)} />
-            <div className="intro-fade absolute -inset-[30px] rounded-t-full rounded-b-[58px] border border-dashed border-pulse/15" style={d(0.95)} />
-            {/* Photo arch: curtain reveal + settle */}
-            <div className="intro-curtain absolute inset-0 overflow-hidden rounded-t-full rounded-b-[32px] bg-night-2 shadow-[0_60px_120px_-40px_rgba(0,0,0,.7)]" style={d(0.15)}>
-              {clinic.doctor.photo && (
+          {/* ── Portrait: full-bleed duotone plate ─────────── */}
+          <figure className="group relative aspect-[4/5.4] overflow-hidden lg:aspect-auto lg:col-span-5 lg:min-h-0">
+            {/* Photo keeps its native 4:5 ratio; mask dissolves its edges into the page (no seam) */}
+            <div
+              className="intro-curtain absolute inset-x-0 top-0 aspect-[4/5] lg:max-h-full [mask-image:linear-gradient(to_bottom,transparent_0%,#000_14%,#000_55%,transparent_96%)] lg:[mask-image:linear-gradient(to_right,transparent_0%,#000_28%),linear-gradient(to_bottom,#000_55%,transparent_96%)] lg:[mask-composite:intersect]"
+              style={d(0.15)}
+            >
+              {doc.photo && (
                 <div className="intro-settle absolute inset-0" style={d(0.15)}>
-                  <Image src={clinic.doctor.photo} alt={`${clinic.doctor.name}, cardiologist`} fill priority sizes="(min-width:1024px) 34vw, 90vw" className="object-cover object-top" />
+                  <Image
+                    src={doc.photo}
+                    alt={`${doc.name}, cardiologist`}
+                    fill
+                    priority
+                    sizes="(min-width:1024px) 40vw, 100vw"
+                    className="object-cover object-top brightness-[1.08] contrast-[1.04] grayscale transition-[filter] duration-[1400ms] ease-out group-hover:grayscale-0"
+                  />
                 </div>
               )}
-              {/* Warm the bright clinic backdrop into the maroon palette */}
-              <div className="absolute inset-0 bg-[linear-gradient(to_bottom,#6e1b2f_0%,transparent_45%)] opacity-45 mix-blend-multiply" />
-              <div className="absolute inset-0 shadow-[inset_0_0_80px_rgba(20,6,10,.45)]" />
-              <div className="absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-night via-night/60 to-transparent" />
-              <div className="absolute inset-x-6 bottom-6 flex items-end justify-between gap-4">
-                <div>
-                  <p className="font-serif text-[26px] leading-none text-white">{clinic.doctor.name}</p>
-                  <p className="label mt-2.5 !text-[9.5px] leading-relaxed text-pulse">{clinic.doctor.role}</p>
-                </div>
-                <span className="grid size-9 shrink-0 place-items-center rounded-full border border-pulse/40 text-pulse">
-                  <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                    <path d="m9 12 2 2 4-4" />
-                  </svg>
-                </span>
-              </div>
+              {/* Brand duotone; lifts on hover to reveal true colour */}
+              <div className="absolute inset-0 bg-[#a3707a] mix-blend-multiply transition-opacity duration-[1400ms] ease-out group-hover:opacity-0" />
             </div>
 
-            {/* Floating chips: placed on background/shoulder, never over the face */}
-            <VitalsChip />
-            <div className="on-light intro-pop absolute -left-6 bottom-[30%] hidden items-center gap-3 rounded-2xl bg-paper py-3 pl-3 pr-5 text-ink shadow-[0_25px_60px_-20px_rgba(0,0,0,.6)] sm:flex lg:-left-16" style={d(1.0)}>
-              <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-pulse/15 font-serif text-[18px] text-pulse">1st</span>
-              <div>
-                <span className="label !text-[8.5px] text-gold">Pioneer · SE Asia</span>
-                <p className="mt-0.5 font-serif text-[18px] leading-tight">LAA closure</p>
-              </div>
-            </div>
-          </motion.div>
+            {/* Vertical spine label */}
+            <span className="intro-fade absolute right-5 top-6 font-mono text-[10px] uppercase tracking-[0.3em] text-white/55 [writing-mode:vertical-rl]" style={d(0.9)}>
+              {doc.quals.split(" · ").slice(0, 3).join(" · ")}
+            </span>
+
+            <figcaption className="intro-fade absolute inset-x-6 bottom-[120px] sm:inset-x-10 lg:bottom-[150px]" style={d(0.85)}>
+              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/45">Lead consultant</span>
+              <p className="mt-2 font-serif text-[30px] leading-[1.05] text-white">{doc.name}</p>
+              <p className="mt-1 font-serif text-[17px] italic text-pulse">Pioneer of LAA closure in Southeast Asia</p>
+            </figcaption>
+          </figure>
         </div>
 
-        {/* Gold monitor trace */}
+        {/* Gold monitor trace runs under both columns, across the portrait */}
         <div className="pointer-events-none absolute inset-x-0 bottom-0">
-          <ECGMonitor height={130} amplitude={0.34} lineWidth={1.8} />
+          <ECGMonitor height={120} amplitude={0.32} lineWidth={1.5} />
         </div>
-        <span className="label absolute bottom-4 right-6 hidden text-white/35 md:block sm:right-10">↳ Move your cursor across the rhythm</span>
       </div>
 
       <QuickActions />
     </section>
-  );
-}
-
-function VitalsChip() {
-  return (
-    <div
-      className="on-light intro-pop absolute -right-5 top-[9%] hidden w-[188px] rounded-[20px] bg-paper p-4 text-ink shadow-[0_30px_70px_-20px_rgba(0,0,0,.65)] sm:block lg:-right-14"
-      style={d(1.15)}
-    >
-      <div className="flex items-center justify-between">
-        <span className="label !text-[8.5px] text-mute">Resting rhythm</span>
-        <Heart className="size-3.5 animate-beat text-pulse" />
-      </div>
-      <div className="mt-2 flex items-end gap-1.5">
-        <span className="font-serif text-[44px] leading-[0.85]">72</span>
-        <span className="label mb-0.5 !text-[8.5px] text-mute">bpm</span>
-      </div>
-      <svg viewBox="0 0 160 28" className="mt-3 h-7 w-full text-pulse" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-        <path d="M0 16h34l5-6 5 6h10l4 9 7-24 6 22 4-7h21l5-5 5 5h10l4 9 7-24 6 22 4-7h23" />
-      </svg>
-      <p className="mt-2 text-[11px] text-mute">Healthy range · 60–100</p>
-    </div>
   );
 }
 
