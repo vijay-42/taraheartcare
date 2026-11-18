@@ -149,11 +149,11 @@ export default function ResourcesPage() {
               <Reveal key={p.t} delay={i * 0.08}>
                 <article className="group cursor-pointer">
                   <div className={`relative aspect-[4/5] overflow-hidden rounded-[28px] p-7 ${p.tone}`}>
-                    <div className="absolute inset-0 grid-paper-dark opacity-40 transition duration-700 group-hover:scale-110" />
+                    <div className="absolute inset-0 grid-paper-dark opacity-40 transition duration-500 group-hover:scale-110" />
                     <div className="relative flex h-full flex-col justify-between">
                       <div className="flex items-center justify-between">
                         <span className="label opacity-70">{p.tag}</span>
-                        <span className="grid size-11 place-items-center rounded-full border border-current/25 transition duration-500 group-hover:rotate-45 group-hover:bg-current/10">
+                        <span className="grid size-11 place-items-center rounded-full border border-current/25 transition duration-300 group-hover:rotate-45 group-hover:bg-current/10">
                           <ArrowUpRight className="size-5" />
                         </span>
                       </div>

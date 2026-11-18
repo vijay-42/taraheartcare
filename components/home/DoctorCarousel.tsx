@@ -51,7 +51,7 @@ export default function DoctorCarousel() {
         {DOCTORS.map((d, i) => (
           <article
             key={i}
-            className="group flex w-[82%] shrink-0 snap-start flex-col overflow-hidden rounded-[28px] border border-ink/10 bg-paper transition duration-500 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(36,23,27,0.35)] sm:w-[46%] lg:w-[calc((100%-60px)/4)]"
+            className="group flex w-[82%] shrink-0 snap-start flex-col overflow-hidden rounded-[28px] border border-ink/10 bg-paper transition duration-300 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(36,23,27,0.35)] sm:w-[46%] lg:w-[calc((100%-60px)/4)]"
           >
             <div className="relative">
               <DoctorAvatar photo={d.photo} name={d.name} variant={i - 1} className="aspect-[4/4.2]" />

@@ -92,7 +92,7 @@ export default function HeroSlider() {
                   onClick={() => go(n)}
                   aria-label={`Show slide ${n + 1}: ${sl.eyebrow}`}
                   aria-current={n === i}
-                  className={`relative h-1 overflow-hidden rounded-full transition-all duration-500 ${n === i ? "w-14" : "w-6"} ${
+                  className={`relative h-1 overflow-hidden rounded-full transition-all duration-300 ${n === i ? "w-14" : "w-6"} ${
                     tone.dark ? "bg-white/25" : "bg-ink/15"
                   }`}
                 >
@@ -140,7 +140,7 @@ function SlideBackdrop({ s, index, dark }: { s: Slide; index: number; dark: bool
     return (
       <>
         <Image src={s.image} alt="" fill priority={index === 0} sizes="100vw" className="intro-settle object-cover" />
-        <div className={`absolute inset-0 ${dark ? "bg-gradient-to-r from-night via-night/80 to-night/10" : "bg-gradient-to-r from-sand via-sand/85 to-sand/0"}`} />
+        <div className={`absolute inset-0 ${dark ? "bg-gradient-to-r from-night/90 via-night/55 to-transparent" : "bg-gradient-to-r from-sand via-sand/85 to-sand/0"}`} />
       </>
     );
   return (

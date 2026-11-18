@@ -49,7 +49,7 @@ export const slides: Slide[] = [
     cta: { label: "View packages", href: "#packages" },
     secondary: { label: "Book a checkup", href: "/contact?service=Preventive%20Heart%20Checkup#book" },
     image: "/images/slide-checkup.jpg",
-    tone: "maroon",
+    tone: "cream",
   },
   {
     eyebrow: "Non-invasive diagnostics",
@@ -59,7 +59,7 @@ export const slides: Slide[] = [
     cta: { label: "Explore diagnostics", href: "/services/diagnostics" },
     secondary: { label: "Pre-test instructions", href: "/resources#prep" },
     image: "/images/slide-diagnostics.jpg",
-    tone: "wine",
+    tone: "cream",
   },
 ];
 

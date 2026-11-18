@@ -100,7 +100,7 @@ export default function Header() {
 
         {/* Main bar */}
         <div
-          className={`transition-[background,border,backdrop-filter] duration-500 ${
+          className={`transition-[background,border,backdrop-filter] duration-300 ${
             scrolled || mega ? "border-b border-line bg-paper/95 shadow-[0_10px_30px_-20px_rgba(36,23,27,0.35)] backdrop-blur" : "border-b border-line/70 bg-paper"
           }`}
         >

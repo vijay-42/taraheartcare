@@ -73,7 +73,7 @@ export default function RiskCheck() {
                     strokeLinecap="round"
                     strokeDasharray="283"
                     style={{ strokeDashoffset: dashOffset }}
-                    className="transition-[stroke] duration-500"
+                    className="transition-[stroke] duration-300"
                   />
                   <motion.line x1="100" y1="100" x2={needleX} y2={needleY} stroke="var(--color-ink)" strokeWidth="2.5" strokeLinecap="round" />
                   <circle cx="100" cy="100" r="7" fill="var(--color-ink)" />

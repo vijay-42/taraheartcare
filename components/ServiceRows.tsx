@@ -48,8 +48,8 @@ export default function ServiceRows() {
           onPointerEnter={() => setHover(i)}
           className="group relative block overflow-hidden border-b border-ink/15 hover:[--color-pulse:#d4c09e] hover:[--color-on-pulse:#1e1014]"
         >
-          <span className="absolute inset-0 origin-bottom scale-y-0 bg-night transition-transform duration-700 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-y-100" />
-          <div className="container-x relative grid gap-6 py-10 transition-colors duration-500 group-hover:text-paper md:grid-cols-[80px_1fr_1fr_auto] md:items-center md:py-14">
+          <span className="absolute inset-0 origin-bottom scale-y-0 bg-night transition-transform duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-y-100" />
+          <div className="container-x relative grid gap-6 py-10 transition-colors duration-300 group-hover:text-paper md:grid-cols-[80px_1fr_1fr_auto] md:items-center md:py-14">
             <span className="label text-pulse">{s.index}</span>
             <h2 className="display text-[clamp(2.4rem,5.5vw,5rem)]">
               {s.title} <em>{s.titleItalic}</em>
@@ -59,7 +59,7 @@ export default function ServiceRows() {
                 <li key={b}>— {b}</li>
               ))}
             </ul>
-            <span className="grid size-14 place-items-center rounded-full border border-current/20 transition duration-500 group-hover:rotate-45 group-hover:border-pulse group-hover:bg-pulse">
+            <span className="grid size-14 place-items-center rounded-full border border-current/20 transition duration-300 group-hover:rotate-45 group-hover:border-pulse group-hover:bg-pulse">
               <ArrowUpRight className="size-6" />
             </span>
           </div>

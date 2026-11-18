@@ -155,9 +155,9 @@ export default function SpecialityGrid({ eyebrow = "Cardiac care in one place", 
             <Reveal as="li" key={s.id} delay={(i % 4) * 0.06} y={24}>
               <Link
                 href={s.href}
-                className="group relative flex h-full min-h-[168px] flex-col items-center justify-center gap-5 overflow-hidden rounded-[18px] border border-line bg-paper px-4 py-7 text-center transition duration-500 hover:-translate-y-1 hover:border-pulse hover:shadow-[0_18px_40px_-24px_rgb(110_27_47/0.45)] sm:min-h-[196px]"
+                className="group relative flex h-full min-h-[168px] flex-col items-center justify-center gap-5 overflow-hidden rounded-[18px] border border-line bg-paper px-4 py-7 text-center transition duration-300 hover:-translate-y-1 hover:border-pulse hover:shadow-[0_18px_40px_-24px_rgb(110_27_47/0.45)] sm:min-h-[196px]"
               >
-                <span className="absolute inset-x-0 bottom-0 h-0 bg-pulse transition-all duration-500 ease-out group-hover:h-full" aria-hidden />
+                <span className="absolute inset-x-0 bottom-0 h-0 bg-pulse transition-all duration-300 ease-out group-hover:h-full" aria-hidden />
                 <svg
                   viewBox="0 0 64 64"
                   fill="none"
@@ -165,12 +165,12 @@ export default function SpecialityGrid({ eyebrow = "Cardiac care in one place", 
                   strokeWidth={1.7}
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="relative size-14 text-pulse transition duration-500 group-hover:scale-110 group-hover:text-on-pulse sm:size-[72px]"
+                  className="relative size-14 text-pulse transition duration-300 group-hover:scale-110 group-hover:text-on-pulse sm:size-[72px]"
                   aria-hidden
                 >
                   {ICONS[s.id]}
                 </svg>
-                <span className="relative text-[15px] font-semibold leading-snug text-ink transition-colors duration-500 group-hover:text-on-pulse sm:text-[17px]">
+                <span className="relative text-[15px] font-semibold leading-snug text-ink transition-colors duration-300 group-hover:text-on-pulse sm:text-[17px]">
                   {s.title}
                 </span>
               </Link>

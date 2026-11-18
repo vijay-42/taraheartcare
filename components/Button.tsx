@@ -31,12 +31,12 @@ export default function Button({
   const inner = (
     <>
       <span className="relative block overflow-hidden">
-        <span className="block transition-transform duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:-translate-y-full">{children}</span>
-        <span aria-hidden className="absolute inset-0 block translate-y-full transition-transform duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:translate-y-0">
+        <span className="block transition-transform duration-300 ease-[cubic-bezier(.16,1,.3,1)] group-hover:-translate-y-full">{children}</span>
+        <span aria-hidden className="absolute inset-0 block translate-y-full transition-transform duration-300 ease-[cubic-bezier(.16,1,.3,1)] group-hover:translate-y-0">
           {children}
         </span>
       </span>
-      <span className="grid size-8 place-items-center rounded-full bg-current/10 transition-transform duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:rotate-45">
+      <span className="grid size-8 place-items-center rounded-full bg-current/10 transition-transform duration-300 ease-[cubic-bezier(.16,1,.3,1)] group-hover:rotate-45">
         {icon ?? <ArrowUpRight className="size-4" />}
       </span>
     </>

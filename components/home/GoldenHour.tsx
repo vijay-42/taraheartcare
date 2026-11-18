@@ -60,16 +60,16 @@ export default function GoldenHour() {
                 <li key={s.k} className="relative">
                   <div className="flex items-center gap-4">
                     <span
-                      className={`relative grid size-10 place-items-center rounded-full border font-mono text-[12px] transition-all duration-500 ${
+                      className={`relative grid size-10 place-items-center rounded-full border font-mono text-[12px] transition-all duration-300 ${
                         on ? "border-pulse bg-pulse text-on-pulse shadow-[0_0_30px_rgba(212,192,158,.45)]" : "border-white/20 bg-night text-white/40"
                       }`}
                     >
                       0{i + 1}
                     </span>
-                    <span className={`label transition-colors duration-500 ${on ? "text-pulse" : "text-white/30"}`}>{s.k}</span>
+                    <span className={`label transition-colors duration-300 ${on ? "text-pulse" : "text-white/30"}`}>{s.k}</span>
                   </div>
-                  <h3 className={`mt-6 font-serif text-[30px] leading-tight transition-colors duration-500 ${on ? "text-white" : "text-white/35"}`}>{s.t}</h3>
-                  <p className={`mt-3 text-[15px] leading-relaxed transition-colors duration-500 ${on ? "text-white/65" : "text-white/25"}`}>{s.d}</p>
+                  <h3 className={`mt-6 font-serif text-[30px] leading-tight transition-colors duration-300 ${on ? "text-white" : "text-white/35"}`}>{s.t}</h3>
+                  <p className={`mt-3 text-[15px] leading-relaxed transition-colors duration-300 ${on ? "text-white/65" : "text-white/25"}`}>{s.d}</p>
                 </li>
               );
             })}

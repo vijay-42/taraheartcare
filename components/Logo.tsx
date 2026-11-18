@@ -16,7 +16,7 @@ export default function Logo({ light = false, className = "h-[66px]" }: { light?
         height={143}
         priority={!light}
         unoptimized
-        className={`w-auto transition-transform duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.04] ${className}`}
+        className={`w-auto transition-transform duration-300 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.04] ${className}`}
       />
     </Link>
   );

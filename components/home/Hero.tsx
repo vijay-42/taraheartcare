@@ -142,9 +142,9 @@ export default function Hero() {
 
 function QuickActions() {
   const status = useOpenStatus();
-  const tile = "intro-fade group relative flex min-h-[124px] flex-col justify-between gap-6 rounded-[24px] p-5 sm:min-h-[150px] sm:p-6 transition duration-500 hover:-translate-y-1";
+  const tile = "intro-fade group relative flex min-h-[124px] flex-col justify-between gap-6 rounded-[24px] p-5 sm:min-h-[150px] sm:p-6 transition duration-300 hover:-translate-y-1";
   const arrow = (
-    <span className="grid size-10 place-items-center rounded-full border border-current/15 transition duration-500 group-hover:rotate-45 group-hover:bg-current/10">
+    <span className="grid size-10 place-items-center rounded-full border border-current/15 transition duration-300 group-hover:rotate-45 group-hover:bg-current/10">
       <ArrowUpRight className="size-4" />
     </span>
   );

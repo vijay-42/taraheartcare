@@ -70,7 +70,7 @@ function StackCard({ s, i, total, progress }: { s: Service; i: number; total: nu
             </ul>
           </div>
           <Link href={`/services/${s.slug}`} className="group mt-8 inline-flex w-fit items-center gap-3 text-[15px] font-medium">
-            <span className="grid size-12 place-items-center rounded-full border border-current/25 transition duration-500 group-hover:rotate-45 group-hover:bg-current/10">
+            <span className="grid size-12 place-items-center rounded-full border border-current/25 transition duration-300 group-hover:rotate-45 group-hover:bg-current/10">
               <ArrowUpRight className="size-5" />
             </span>
             Explore {s.titleItalic.toLowerCase()}

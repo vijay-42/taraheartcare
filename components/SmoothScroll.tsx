@@ -18,7 +18,7 @@ export default function SmoothScroll() {
     let raf = 0;
     // Smooth scrolling is a nicety: start it once the page is idle so it never delays first paint.
     const start = () => {
-      const lenis = new Lenis({ duration: 1.15, easing: (t) => 1 - Math.pow(1 - t, 4), anchors: { offset: -110 } });
+      const lenis = new Lenis({ duration: 0.9, easing: (t) => 1 - Math.pow(1 - t, 4), anchors: { offset: -110 } });
       lenisRef.current = lenis;
       const loop = (time: number) => {
         lenis.raf(time);

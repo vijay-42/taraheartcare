@@ -22,9 +22,9 @@ export function DoctorAvatar({
   return (
     <div className={`relative overflow-hidden bg-sand ${className}`}>
       {photo ? (
-        <Image src={photo} alt={name} fill sizes="(min-width:1024px) 30vw, 90vw" className="object-cover object-top transition duration-700 ease-out group-hover:scale-[1.04]" />
+        <Image src={photo} alt={name} fill sizes="(min-width:1024px) 30vw, 90vw" className="object-cover object-top transition duration-500 ease-out group-hover:scale-[1.04]" />
       ) : (
-        <DoctorIllustration variant={variant} className="h-full w-full origin-bottom transition duration-700 ease-out group-hover:scale-[1.05]" />
+        <DoctorIllustration variant={variant} className="h-full w-full origin-bottom transition duration-500 ease-out group-hover:scale-[1.05]" />
       )}
     </div>
   );
@@ -53,7 +53,7 @@ export function WeekDots({ days, light = false }: { days: number[]; light?: bool
 
 export default function DoctorCard({ member, index }: { member: TeamMember; index: number }) {
   return (
-    <article className="group relative flex h-full flex-col overflow-hidden rounded-[28px] border border-ink/10 bg-paper transition duration-500 hover:-translate-y-1 hover:border-ink/25 hover:shadow-[0_30px_60px_-30px_rgba(36,23,27,0.35)]">
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-[28px] border border-ink/10 bg-paper transition duration-300 hover:-translate-y-1 hover:border-ink/25 hover:shadow-[0_30px_60px_-30px_rgba(36,23,27,0.35)]">
       <div className="relative">
         <DoctorAvatar photo={member.photo} name={member.name} variant={index - 2} className="aspect-[5/4]" />
         <span className="label absolute left-5 top-5 rounded-full bg-paper/90 px-3 py-1.5 !text-[10px] text-ink">

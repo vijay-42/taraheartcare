@@ -123,7 +123,7 @@ export default function ServiceDetail({ service, next }: { service: Service; nex
       </section>
 
       {/* Next service */}
-      <Link href={`/services/${next.slug}`} className="group block border-b border-ink/10 py-20 transition-colors duration-700 hover:bg-night hover:text-paper hover:[--color-pulse:#d4c09e] sm:py-28">
+      <Link href={`/services/${next.slug}`} className="group block border-b border-ink/10 py-20 transition-colors duration-500 hover:bg-night hover:text-paper hover:[--color-pulse:#d4c09e] sm:py-28">
         <div className="container-x flex items-end justify-between gap-6">
           <div>
             <p className="label text-mute group-hover:text-white/50">Next · {next.index}</p>
@@ -131,7 +131,7 @@ export default function ServiceDetail({ service, next }: { service: Service; nex
               {next.title} <em className="text-pulse">{next.titleItalic}</em>
             </p>
           </div>
-          <span className="grid size-16 shrink-0 place-items-center rounded-full border border-current/20 transition duration-700 group-hover:rotate-45 group-hover:border-pulse group-hover:bg-pulse sm:size-24">
+          <span className="grid size-16 shrink-0 place-items-center rounded-full border border-current/20 transition duration-500 group-hover:rotate-45 group-hover:border-pulse group-hover:bg-pulse sm:size-24">
             <ArrowUpRight className="size-7" />
           </span>
         </div>

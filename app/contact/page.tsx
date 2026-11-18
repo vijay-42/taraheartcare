@@ -33,7 +33,7 @@ export default function ContactPage() {
         <div className="container-x grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {tiles.map((t, i) => (
             <Reveal key={t.k} delay={i * 0.06}>
-              <a href={t.href} {...(t.href.startsWith("http") ? { target: "_blank", rel: "noopener" } : {})} className={`group flex h-full flex-col justify-between gap-10 rounded-[24px] p-6 transition duration-500 hover:-translate-y-1 ${t.tone}`}>
+              <a href={t.href} {...(t.href.startsWith("http") ? { target: "_blank", rel: "noopener" } : {})} className={`group flex h-full flex-col justify-between gap-10 rounded-[24px] p-6 transition duration-300 hover:-translate-y-1 ${t.tone}`}>
                 <div className="flex items-center justify-between">
                   <span className="label opacity-70">{t.k}</span>
                   <t.icon className="size-5" />
@@ -86,7 +86,7 @@ export default function ContactPage() {
               src={mapsEmbed}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="block h-[460px] w-full grayscale transition duration-700 group-hover:grayscale-0"
+              className="block h-[460px] w-full grayscale transition duration-500 group-hover:grayscale-0"
             />
             <span className="label pointer-events-none absolute left-5 top-5 rounded-full bg-paper/95 px-4 py-2">Find us · {clinic.address.line2}</span>
           </div>

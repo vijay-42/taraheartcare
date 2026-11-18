@@ -38,7 +38,7 @@ export default function ServicesPage() {
           </h2>
           <div className="mt-14 grid gap-px overflow-hidden rounded-[28px] bg-ink/10 sm:grid-cols-2 lg:grid-cols-4">
             {JOURNEY.map((j, i) => (
-              <Reveal key={j.t} delay={i * 0.08} className="group bg-paper p-8 transition-colors duration-500 hover:bg-pulse hover:text-on-pulse">
+              <Reveal key={j.t} delay={i * 0.08} className="group bg-paper p-8 transition-colors duration-300 hover:bg-pulse hover:text-on-pulse">
                 <span className="label text-pulse transition group-hover:text-white/70">0{i + 1}</span>
                 <h3 className="mt-16 font-serif text-[40px] leading-none">{j.t}</h3>
                 <p className="mt-4 text-[15px] leading-relaxed text-ink-soft transition group-hover:text-white/80">{j.d}</p>

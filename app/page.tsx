@@ -44,17 +44,17 @@ export default function Home() {
       <section className="py-20 sm:py-28">
         <div className="container-x">
           <SectionHead eyebrow="What we treat" title="Our Specialities" href="/services" linkLabel="View all specialities" />
-          <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+          <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4 lg:gap-7">
             {specialities.map((s, i) => (
-              <Reveal key={s.name} delay={(i % 6) * 0.05}>
+              <Reveal key={s.name} delay={(i % 4) * 0.06}>
                 <Link
                   href={s.href}
-                  className="group flex h-full flex-col items-center gap-4 rounded-[24px] border border-ink/10 bg-paper px-4 py-7 text-center transition duration-500 hover:-translate-y-1 hover:border-pulse hover:bg-pulse hover:text-on-pulse"
+                  className="group flex h-full min-h-[168px] flex-col items-center justify-center gap-5 rounded-[18px] border border-line bg-paper px-4 py-7 text-center transition duration-300 hover:-translate-y-1 hover:border-pulse hover:bg-pulse hover:text-on-pulse hover:shadow-[0_18px_40px_-24px_rgb(110_27_47/0.45)] sm:min-h-[196px]"
                 >
-                  <span className="grid size-16 place-items-center rounded-full bg-blush/70 text-pulse transition duration-500 group-hover:bg-white/15 group-hover:text-on-pulse">
-                    <HomeIcon name={s.icon} className="size-9" />
+                  <span className="text-pulse transition duration-300 group-hover:scale-110 group-hover:text-on-pulse">
+                    <HomeIcon name={s.icon} className="size-14 sm:size-[72px]" />
                   </span>
-                  <span className="text-[15px] font-medium leading-snug">{s.name}</span>
+                  <span className="text-[15px] font-semibold leading-snug sm:text-[17px]">{s.name}</span>
                 </Link>
               </Reveal>
             ))}
@@ -101,17 +101,17 @@ export default function Home() {
       </section>
 
       {/* Facilities */}
-      <section className="on-dark relative overflow-hidden bg-night py-20 text-white sm:py-28">
-        <div className="grid-paper-dark absolute inset-0 opacity-60" />
+      <section className="relative overflow-hidden bg-blush/40 py-20 sm:py-28">
+        <div className="grid-paper absolute inset-0 opacity-50" />
         <div className="container-x relative">
-          <SectionHead eyebrow="Infrastructure" title="Our Facilities" dark />
-          <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-[28px] border border-white/10 bg-white/10 lg:grid-cols-4">
+          <SectionHead eyebrow="Infrastructure" title="Our Facilities" />
+          <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-[28px] border border-ink/10 bg-ink/10 lg:grid-cols-4">
             {facilities.map((f, i) => (
-              <Reveal key={f.name} delay={(i % 4) * 0.06} className="bg-night">
-                <div className="group flex h-full flex-col gap-8 p-6 transition duration-500 hover:bg-night-2 sm:p-8">
+              <Reveal key={f.name} delay={(i % 4) * 0.06} className="bg-paper">
+                <div className="group flex h-full flex-col gap-8 p-6 transition duration-300 hover:bg-bone sm:p-8">
                   <div className="flex items-start justify-between">
-                    <HomeIcon name={f.icon} className="size-11 text-pulse transition duration-500 group-hover:scale-110" />
-                    <span className="label text-white/30">0{i + 1}</span>
+                    <HomeIcon name={f.icon} className="size-11 text-pulse transition duration-300 group-hover:scale-110" />
+                    <span className="label text-mute">0{i + 1}</span>
                   </div>
                   <p className="font-serif text-[clamp(1.25rem,1.8vw,1.6rem)] leading-[1.1]">{f.name}</p>
                 </div>
@@ -352,10 +352,10 @@ function ImageSlot({ src, alt, icon, className = "" }: { src: string | null; alt
   return (
     <div className={`relative overflow-hidden bg-sand ${className}`}>
       {src ? (
-        <Image src={src} alt={alt} fill sizes="(min-width:768px) 33vw, 100vw" className="object-cover transition duration-700 group-hover:scale-[1.05]" />
+        <Image src={src} alt={alt} fill sizes="(min-width:768px) 33vw, 100vw" className="object-cover transition duration-500 group-hover:scale-[1.05]" />
       ) : (
         <div className="grid-paper absolute inset-0 grid place-items-center bg-gradient-to-br from-blush via-sand to-bone">
-          <HomeIcon name={icon} className="size-20 text-pulse/25 transition duration-700 group-hover:scale-110" strokeWidth={1.2} />
+          <HomeIcon name={icon} className="size-20 text-pulse/25 transition duration-500 group-hover:scale-110" strokeWidth={1.2} />
         </div>
       )}
     </div>
@@ -368,12 +368,12 @@ function VideoCard({ youtubeId, title, detail }: { youtubeId: string | null; tit
       <div className="relative aspect-video overflow-hidden rounded-[24px] bg-night">
         {youtubeId ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={`https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`} alt="" className="h-full w-full object-cover opacity-85 transition duration-700 group-hover:scale-105" loading="lazy" />
+          <img src={`https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`} alt="" className="h-full w-full object-cover opacity-85 transition duration-500 group-hover:scale-105" loading="lazy" />
         ) : (
           <div className="grid-paper-dark absolute inset-0 bg-gradient-to-br from-night via-night-2 to-pulse-deep" />
         )}
         <span className="absolute inset-0 grid place-items-center">
-          <span className="grid size-16 place-items-center rounded-full bg-paper text-pulse shadow-xl transition duration-500 group-hover:scale-110">
+          <span className="grid size-16 place-items-center rounded-full bg-paper text-pulse shadow-xl transition duration-300 group-hover:scale-110">
             <svg viewBox="0 0 24 24" className="ml-1 size-6" fill="currentColor" aria-hidden>
               <path d="M7 4.5v15l12.5-7.5z" />
             </svg>
