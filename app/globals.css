@@ -23,8 +23,8 @@
   --color-night-2: #2a171d;
   --color-mint: #7fb59a; /* "open" indicator, muted sage */
 
-  --font-serif: var(--font-instrument), "Times New Roman", serif;
-  --font-sans: var(--font-geist), system-ui, sans-serif;
+  --font-serif: var(--font-display), Georgia, serif;
+  --font-sans: var(--font-body), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -58,11 +58,12 @@ html.lenis, html.lenis body { height: auto; }
 
 body {
   font-family: var(--font-sans);
-  font-feature-settings: "ss01", "cv11";
+  font-feature-settings: normal;
 }
 
-/* Cormorant defaults to old-style figures; use lining numerals for stats & readouts. */
-.font-serif, .display { font-variant-numeric: lining-nums; }
+/* Lining numerals for stats; size-adjust keeps Fraunces' larger x-height in line
+   with the type scale the layout was designed around. */
+.font-serif, .display { font-variant-numeric: lining-nums; font-size-adjust: ex-height 0.44; }
 
 ::selection { background: var(--color-pulse); color: #fff; }
 

@@ -54,7 +54,7 @@ export default function DoctorCarousel() {
             className="group flex w-[82%] shrink-0 snap-start flex-col overflow-hidden rounded-[28px] border border-ink/10 bg-paper transition duration-500 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(36,23,27,0.35)] sm:w-[46%] lg:w-[calc((100%-60px)/4)]"
           >
             <div className="relative">
-              <DoctorAvatar photo={d.photo} name={d.name} className="aspect-[4/4.2]" />
+              <DoctorAvatar photo={d.photo} name={d.name} variant={i - 1} className="aspect-[4/4.2]" />
               <span className="label absolute right-4 top-4 rounded-full bg-night/85 px-3 py-1.5 !text-[10px] text-white">{d.years}+ yrs</span>
             </div>
             <div className="flex flex-1 flex-col p-6">

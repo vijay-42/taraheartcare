@@ -19,7 +19,7 @@ const SPECIALITIES = [
 
 const DOCTORS = [
   `${clinic.doctor.name} · Interventional Cardiology`,
-  ...clinic.team.map((t) => `${t.name} · ${t.role}`),
+  ...clinic.team.map((t) => `${t.name} · ${t.specialty}`),
 ];
 
 const WHEN = ["Earliest available", "Today", "Tomorrow", "This week", "Weekend"];

@@ -24,7 +24,7 @@ export default function CareTeam() {
           {clinic.team.map((m, i) => (
             <Reveal key={i} delay={i * 0.08} className="h-full">
               <Link href="/doctors" className="group flex h-full items-center gap-5 bg-paper p-6 transition-colors hover:bg-bone sm:p-7">
-                <DoctorAvatar photo={m.photo} name={m.name} className="size-20 shrink-0 rounded-full ring-1 ring-ink/10" />
+                <DoctorAvatar photo={m.photo} name={m.name} variant={i} className="size-20 shrink-0 rounded-full ring-1 ring-ink/10" />
                 <div className="min-w-0 flex-1">
                   <p className="label !text-[10px] text-pulse">{m.specialty}</p>
                   <p className="mt-2 font-serif text-[24px] leading-none">{m.name}</p>

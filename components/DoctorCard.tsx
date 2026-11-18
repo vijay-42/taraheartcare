@@ -1,24 +1,30 @@
 import Image from "next/image";
 import { clinic } from "@/lib/clinic";
+import DoctorIllustration from "./DoctorIllustration";
 
 export type TeamMember = (typeof clinic.team)[number];
 
 const DAYS = ["S", "M", "T", "W", "T", "F", "S"];
 const ORDER = [1, 2, 3, 4, 5, 6, 0]; // Mon → Sun
 
-/** Photo, or a soft silhouette until a real photo is added in lib/clinic.ts. */
-export function DoctorAvatar({ photo, name, className = "" }: { photo: string | null; name: string; className?: string }) {
+/** Photo, or a colourful illustrated portrait until a real photo is added in lib/clinic.ts. */
+export function DoctorAvatar({
+  photo,
+  name,
+  variant = 0,
+  className = "",
+}: {
+  photo: string | null;
+  name: string;
+  variant?: number;
+  className?: string;
+}) {
   return (
     <div className={`relative overflow-hidden bg-sand ${className}`}>
       {photo ? (
         <Image src={photo} alt={name} fill sizes="(min-width:1024px) 30vw, 90vw" className="object-cover object-top transition duration-700 ease-out group-hover:scale-[1.04]" />
       ) : (
-        <div className="grid-paper flex h-full w-full items-end justify-center bg-gradient-to-br from-blush via-sand to-bone">
-          <svg viewBox="0 0 200 220" className="w-[62%] text-ink/[0.12] transition duration-700 ease-out group-hover:scale-[1.04]" fill="currentColor" aria-hidden>
-            <circle cx="100" cy="72" r="44" />
-            <path d="M14 220c0-58 38-96 86-96s86 38 86 96z" />
-          </svg>
-        </div>
+        <DoctorIllustration variant={variant} className="h-full w-full origin-bottom transition duration-700 ease-out group-hover:scale-[1.05]" />
       )}
     </div>
   );
@@ -49,7 +55,7 @@ export default function DoctorCard({ member, index }: { member: TeamMember; inde
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-[28px] border border-ink/10 bg-paper transition duration-500 hover:-translate-y-1 hover:border-ink/25 hover:shadow-[0_30px_60px_-30px_rgba(36,23,27,0.35)]">
       <div className="relative">
-        <DoctorAvatar photo={member.photo} name={member.name} className="aspect-[5/4]" />
+        <DoctorAvatar photo={member.photo} name={member.name} variant={index - 2} className="aspect-[5/4]" />
         <span className="label absolute left-5 top-5 rounded-full bg-paper/90 px-3 py-1.5 !text-[10px] text-ink">
           {String(index).padStart(2, "0")}
         </span>

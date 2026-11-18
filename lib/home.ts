@@ -27,7 +27,7 @@ export const slides: Slide[] = [
     text: "Heart attack care around the clock: primary angioplasty, ICCU and a cardiac team on call day and night.",
     cta: { label: "Emergency helpline", href: "tel" },
     secondary: { label: "Interventional cardiology", href: "/services/interventional-cardiology" },
-    image: null,
+    image: "/images/slide-cathlab.jpg",
     tone: "wine",
   },
   {
@@ -37,7 +37,7 @@ export const slides: Slide[] = [
     text: "Complex angioplasty, TAVI, LAA closure and structural heart care from one of India's most experienced cardiologists.",
     cta: { label: "Book a consultation", href: "/contact#book" },
     secondary: { label: "Meet our doctors", href: "/doctors" },
-    image: null,
+    image: "/images/slide-clinic.jpg",
     portrait: "/images/doctor.jpg",
     tone: "cream",
   },
@@ -48,7 +48,7 @@ export const slides: Slide[] = [
     text: "ECG, Echo, TMT and blood work in one morning, with every report explained by a cardiologist the same day.",
     cta: { label: "View packages", href: "#packages" },
     secondary: { label: "Book a checkup", href: "/contact?service=Preventive%20Heart%20Checkup#book" },
-    image: null,
+    image: "/images/slide-checkup.jpg",
     tone: "maroon",
   },
   {
@@ -58,7 +58,7 @@ export const slides: Slide[] = [
     text: "Digital ECG, colour Doppler 2D Echo, computerised TMT, Holter and 24-hour BP monitoring under one roof.",
     cta: { label: "Explore diagnostics", href: "/services/diagnostics" },
     secondary: { label: "Pre-test instructions", href: "/resources#prep" },
-    image: null,
+    image: "/images/slide-diagnostics.jpg",
     tone: "wine",
   },
 ];
@@ -89,19 +89,19 @@ export const centres = [
     name: "Cardiac Emergency & Cath Lab",
     text: "Primary angioplasty for heart attacks, 24 × 7 × 365, with a monitored cardiac care unit.",
     href: "/services/interventional-cardiology",
-    image: null as string | null,
+    image: "/images/centre-emergency.jpg" as string | null,
   },
   {
     name: "Heart Diagnostics Centre",
     text: "ECG, colour Doppler Echo, TMT, Holter and ABPM with reports explained the same day.",
     href: "/services/diagnostics",
-    image: null as string | null,
+    image: "/images/centre-diagnostics.jpg" as string | null,
   },
   {
     name: "Preventive Heart Clinic",
     text: "Blood pressure, cholesterol, diabetes and lifestyle risk, managed long before an emergency.",
     href: "/services/preventive-cardiology",
-    image: null as string | null,
+    image: "/images/centre-preventive.jpg" as string | null,
   },
 ];
 
@@ -125,9 +125,9 @@ export const stats = [
 
 // ⚠️ SAMPLE ARTICLES. Replace with real posts (title, image, link) when your blog is ready.
 export const articles = [
-  { tag: "Emergency", title: "Heart attack or acidity? Signs you should never ignore", excerpt: "Chest discomfort that spreads to the arm, jaw or back, with sweating or breathlessness, needs an ECG within minutes.", image: null as string | null, href: "/resources#symptoms", author: "TARA Cardiology Team" },
-  { tag: "Prevention", title: "At what age should you get your first heart checkup?", excerpt: "For most people from 35, and earlier with diabetes, high BP, smoking or a family history of heart disease.", image: null as string | null, href: "/services/preventive-cardiology", author: "TARA Cardiology Team" },
-  { tag: "Diagnostics", title: "ECG, Echo or TMT: which test does your heart need?", excerpt: "Each test answers a different question. Here is how cardiologists decide which one to order, and why.", image: null as string | null, href: "/services/diagnostics", author: "TARA Cardiology Team" },
+  { tag: "Emergency", title: "Heart attack or acidity? Signs you should never ignore", excerpt: "Chest discomfort that spreads to the arm, jaw or back, with sweating or breathlessness, needs an ECG within minutes.", image: "/images/article-chest-pain.jpg" as string | null, href: "/resources#symptoms", author: "TARA Cardiology Team" },
+  { tag: "Prevention", title: "At what age should you get your first heart checkup?", excerpt: "For most people from 35, and earlier with diabetes, high BP, smoking or a family history of heart disease.", image: "/images/article-first-checkup.jpg" as string | null, href: "/services/preventive-cardiology", author: "TARA Cardiology Team" },
+  { tag: "Diagnostics", title: "ECG, Echo or TMT: which test does your heart need?", excerpt: "Each test answers a different question. Here is how cardiologists decide which one to order, and why.", image: "/images/article-ecg.jpg" as string | null, href: "/services/diagnostics", author: "TARA Cardiology Team" },
 ];
 
 // ⚠️ Paste YouTube video IDs of genuine patient stories (the part after "watch?v=").

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Geist, Geist_Mono } from "next/font/google";
+import { Fraunces, Geist_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import { MotionConfig } from "motion/react";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -10,9 +10,10 @@ import SmoothScroll from "@/components/SmoothScroll";
 import { clinic } from "@/lib/clinic";
 import "./globals.css";
 
-// Classical serif to echo the "TARA" wordmark in the logo.
-const serif = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "500"], style: ["normal", "italic"], variable: "--font-instrument" });
-const sans = Geist({ subsets: ["latin"], variable: "--font-geist" });
+// Display: Fraunces, a sturdy modern serif that keeps the logo's classic feel but reads clearly at every size.
+// Body/UI: Plus Jakarta Sans, warm and highly legible for patients.
+const serif = Fraunces({ subsets: ["latin"], style: ["normal", "italic"], axes: ["opsz"], variable: "--font-display" });
+const sans = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-body" });
 const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", preload: false });
 
 export const metadata: Metadata = {
