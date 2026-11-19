@@ -110,7 +110,7 @@ export default function Header() {
             <nav className="hidden lg:block" aria-label="Main">
               <ul className="flex items-center gap-0.5">
                 {NAV.map((n) => (
-                  <li key={n.href} onMouseEnter={() => setMega(!!n.mega)}>
+                  <li key={n.href} className="relative" onMouseEnter={() => setMega(!!n.mega)} onMouseLeave={() => n.mega && setMega(false)}>
                     <Link
                       href={n.href}
                       className={`relative flex items-center gap-1 px-3.5 py-2 text-[14.5px] font-medium transition-colors xl:px-4 ${
@@ -127,6 +127,39 @@ export default function Header() {
                         <motion.span layoutId="nav-pill" className="absolute inset-x-3.5 -bottom-[19px] h-[2px] bg-pulse xl:inset-x-4" transition={{ type: "spring", stiffness: 380, damping: 32 }} />
                       )}
                     </Link>
+                    {n.mega && (
+                      <AnimatePresence>
+                        {mega && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 8 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 8 }}
+                            transition={{ duration: 0.2, ease: EASE }}
+                            className="absolute left-0 top-full pt-5"
+                          >
+                            <ul className="w-[280px] overflow-hidden rounded-xl border border-line bg-paper py-2 shadow-[0_20px_40px_-20px_rgba(36,23,27,0.35)]">
+                              {services.map((sv) => (
+                                <li key={sv.slug}>
+                                  <Link
+                                    href={`/services/${sv.slug}`}
+                                    className={`block px-5 py-2.5 text-[14.5px] transition-colors hover:bg-blush/60 hover:text-pulse ${
+                                      pathname === `/services/${sv.slug}` ? "text-pulse" : "text-ink-soft"
+                                    }`}
+                                  >
+                                    {sv.title} {sv.titleItalic}
+                                  </Link>
+                                </li>
+                              ))}
+                              <li className="mt-1 border-t border-line pt-1">
+                                <Link href="/services" className="block px-5 py-2.5 text-[14.5px] font-medium text-pulse hover:bg-blush/60">
+                                  All specialities →
+                                </Link>
+                              </li>
+                            </ul>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -158,56 +191,6 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Services mega menu */}
-          <AnimatePresence>
-            {mega && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.45, ease: EASE }}
-                className="hidden overflow-hidden lg:block"
-              >
-                <div className="container-x grid grid-cols-[1fr_1fr_1fr_1.1fr] gap-4 pb-8 pt-2">
-                  {services.map((s, i) => (
-                    <motion.div key={s.slug} initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 + i * 0.05, duration: 0.5, ease: EASE }}>
-                      <Link href={`/services/${s.slug}`} className="group block h-full rounded-2xl border border-line bg-paper p-6 transition hover:border-ink">
-                        <div className="flex items-start justify-between">
-                          <span className="label text-mute">{s.index}</span>
-                          <ArrowUpRight className="size-5 text-mute transition group-hover:rotate-45 group-hover:text-pulse" />
-                        </div>
-                        <p className="mt-8 font-serif text-[28px] leading-[1.02]">
-                          {s.title} <em className="text-pulse">{s.titleItalic}</em>
-                        </p>
-                        <ul className="mt-4 space-y-1 text-[13px] text-ink-soft">
-                          {s.bullets.map((b) => (
-                            <li key={b}>· {b}</li>
-                          ))}
-                        </ul>
-                      </Link>
-                    </motion.div>
-                  ))}
-                  <motion.a
-                    href={tel(clinic.phones.emergency)}
-                    initial={{ opacity: 0, y: 14 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2, duration: 0.5, ease: EASE }}
-                    className="on-dark group relative overflow-hidden rounded-2xl bg-night p-6 text-white"
-                  >
-                    <span className="label text-pulse">Emergency · 24×7</span>
-                    <p className="mt-8 font-serif text-[30px] leading-[1.02]">
-                      Heart attack?
-                      <br />
-                      <em className="text-white/60">Call before you come.</em>
-                    </p>
-                    <p className="mt-4 flex items-center gap-2 text-[15px]">
-                      <Phone className="size-4 text-pulse" /> {clinic.phones.emergency}
-                    </p>
-                  </motion.a>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
         </div>
 
         {/* Mobile appointment bar */}
