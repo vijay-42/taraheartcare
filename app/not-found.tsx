@@ -3,7 +3,7 @@ import ECGMonitor from "@/components/ECGMonitor";
 
 export default function NotFound() {
   return (
-    <section className="flex min-h-[90svh] flex-col justify-center pt-[140px]">
+    <section className="flex min-h-[90svh] flex-col justify-center pt-[170px] sm:pt-[140px]">
       <div className="container-x">
         <p className="label text-pulse">Error 404</p>
         <h1 className="display mt-6 text-[clamp(3.5rem,11vw,10rem)]">

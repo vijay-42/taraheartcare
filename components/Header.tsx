@@ -104,7 +104,7 @@ export default function Header() {
             scrolled || mega ? "border-b border-line bg-paper/95 shadow-[0_10px_30px_-20px_rgba(36,23,27,0.35)] backdrop-blur" : "border-b border-line/70 bg-paper"
           }`}
         >
-          <div className="container-x flex h-[76px] items-center justify-between gap-6">
+          <div className="container-x flex h-[60px] items-center justify-between gap-6 sm:h-[76px]">
             <Logo />
 
             <nav className="hidden lg:block" aria-label="Main">
@@ -146,7 +146,7 @@ export default function Header() {
               </div>
               <button
                 onClick={() => setMenu((m) => !m)}
-                className="relative z-[70] grid size-12 place-items-center rounded-full bg-ink text-paper lg:hidden"
+                className="relative z-[70] grid size-10 place-items-center rounded-full bg-ink text-paper sm:size-12 lg:hidden"
                 aria-label={menu ? "Close menu" : "Open menu"}
                 aria-expanded={menu}
               >
@@ -209,19 +209,27 @@ export default function Header() {
             )}
           </AnimatePresence>
         </div>
+
+        {/* Mobile appointment bar */}
+        <Link
+          href="/contact#book"
+          className="flex h-11 items-center justify-center gap-2.5 bg-pulse text-[13px] font-semibold uppercase tracking-[0.12em] text-on-pulse shadow-[0_10px_24px_-14px_rgba(36,23,27,0.6)] active:brightness-95 sm:hidden"
+        >
+          <Calendar className="size-[18px]" /> Book an Appointment
+        </Link>
       </motion.header>
 
       {/* Full-screen mobile menu */}
       <AnimatePresence>
         {menu && (
           <motion.div
-            className="on-dark fixed inset-0 z-[60] flex flex-col bg-night pt-[124px] text-white lg:hidden"
-            initial={{ clipPath: "circle(0% at calc(100% - 44px) 80px)" }}
-            animate={{ clipPath: "circle(150% at calc(100% - 44px) 80px)" }}
-            exit={{ clipPath: "circle(0% at calc(100% - 44px) 80px)" }}
+            className="on-dark fixed inset-0 z-[60] flex flex-col bg-night pt-[112px] text-white sm:pt-[124px] lg:hidden"
+            initial={{ clipPath: "circle(0% at calc(100% - 44px) 66px)" }}
+            animate={{ clipPath: "circle(150% at calc(100% - 44px) 66px)" }}
+            exit={{ clipPath: "circle(0% at calc(100% - 44px) 66px)" }}
             transition={{ duration: 0.7, ease: EASE }}
           >
-            <div className="container-x absolute inset-x-0 top-9 flex h-[76px] items-center">
+            <div className="container-x absolute inset-x-0 top-9 flex h-[60px] items-center sm:h-[76px]">
               <Logo light />
             </div>
             <nav className="container-x flex-1 overflow-y-auto" aria-label="Mobile">

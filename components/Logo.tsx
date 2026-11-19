@@ -6,7 +6,7 @@ import Link from "next/link";
  *  - /brand/logo.png        transparent, original colours (light backgrounds)
  *  - /brand/logo-white.png  white, for dark backgrounds
  */
-export default function Logo({ light = false, className = "h-[66px]" }: { light?: boolean; className?: string }) {
+export default function Logo({ light = false, className = "h-[52px] sm:h-[66px]" }: { light?: boolean; className?: string }) {
   return (
     <Link href="/" aria-label="TARA Heart Care, home" className="group inline-flex shrink-0 items-center">
       <Image

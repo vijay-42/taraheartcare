@@ -15,7 +15,7 @@ import { packages } from "@/lib/services";
 
 export default function Home() {
   return (
-    <div className="pt-[112px]">
+    <div className="pt-[140px] sm:pt-[112px]">
       <HeroSlider />
 
       {/* Search bar overlapping the banner */}

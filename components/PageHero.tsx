@@ -18,7 +18,7 @@ export default function PageHero({
   index?: string;
 }) {
   return (
-    <section className="relative overflow-hidden pt-[150px]">
+    <section className="relative overflow-hidden pt-[170px] sm:pt-[150px]">
       <div className="grid-paper pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,#000,transparent_85%)]" />
       <div className="pointer-events-none absolute -right-48 -top-20 size-[900px] bg-[radial-gradient(circle,var(--color-blush)_0%,transparent_62%)] opacity-70" />
       <HeartMotif className="pointer-events-none absolute -right-10 top-32 hidden w-[420px] text-pulse/[0.08] lg:block" strokeWidth={0.8} />

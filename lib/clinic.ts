@@ -117,10 +117,10 @@ export const clinic = {
     },
   ],
   phones: {
-    emergency: "+91 00000 00000",
-    appointments: "+91 00000 00000",
+    emergency: "+91 92433 50978",
+    appointments: "+91 92433 50978",
   },
-  whatsapp: "910000000000", // digits only, with country code
+  whatsapp: "919243350978", // digits only, with country code
   email: "info@taraheartcare.com",
   address: {
     line1: "[Street Address], [Area]",

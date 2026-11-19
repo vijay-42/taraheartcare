@@ -63,7 +63,7 @@ export default function HeroSlider() {
         touchX.current = null;
       }}
     >
-      <div className="relative h-[620px] sm:h-[600px] lg:h-[min(78vh,660px)] lg:min-h-[560px]">
+      <div className="relative h-[400px] sm:h-[600px] lg:h-[min(78vh,660px)] lg:min-h-[560px]">
         <AnimatePresence initial={false} custom={dir}>
           <motion.div
             key={i}
@@ -84,7 +84,7 @@ export default function HeroSlider() {
 
         {/* Controls */}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10">
-          <div className="container-x flex items-center justify-between gap-6 pb-24 sm:pb-28 lg:pb-32">
+          <div className="container-x flex items-center justify-between gap-6 pb-20 sm:pb-28 lg:pb-32">
             <div className="pointer-events-auto flex items-center gap-2">
               {slides.map((sl, n) => (
                 <button
@@ -162,7 +162,7 @@ function SlideBackdrop({ s, index, dark }: { s: Slide; index: number; dark: bool
 function SlideBody({ s, dark }: { s: Slide; dark: boolean }) {
   const isTel = s.cta.href === "tel";
   return (
-    <div className="container-x relative grid h-full items-center gap-8 pb-28 pt-10 lg:grid-cols-[1.1fr_0.9fr] lg:pb-24">
+    <div className="container-x relative grid h-full items-center gap-8 pb-24 pt-6 sm:pb-28 sm:pt-10 lg:grid-cols-[1.1fr_0.9fr] lg:pb-24">
       <div className="max-w-2xl">
         <motion.p
           initial={{ opacity: 0, y: 16 }}
@@ -172,7 +172,7 @@ function SlideBody({ s, dark }: { s: Slide; dark: boolean }) {
         >
           <span className="size-1.5 rounded-full bg-current" /> {s.eyebrow}
         </motion.p>
-        <h2 className="display mt-6 text-[clamp(2.7rem,6.4vw,5.6rem)]">
+        <h2 className="display mt-4 text-[clamp(2rem,6.4vw,5.6rem)] sm:mt-6">
           {[s.title, s.titleItalic].map((l, n) => (
             <span key={l} className="block overflow-hidden pb-[0.06em]">
               <motion.span
@@ -190,7 +190,7 @@ function SlideBody({ s, dark }: { s: Slide; dark: boolean }) {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.65, duration: 0.8, ease: EASE }}
-          className={`mt-6 max-w-lg text-[17px] leading-relaxed ${dark ? "text-white/70" : "text-ink-soft"}`}
+          className={`mt-3 line-clamp-2 max-w-lg text-[14px] leading-snug sm:mt-6 sm:line-clamp-none sm:text-[17px] sm:leading-relaxed ${dark ? "text-white/70" : "text-ink-soft"}`}
         >
           {s.text}
         </motion.p>
@@ -198,15 +198,17 @@ function SlideBody({ s, dark }: { s: Slide; dark: boolean }) {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.8, ease: EASE }}
-          className="mt-9 flex flex-wrap gap-3"
+          className="mt-5 flex flex-wrap gap-3 sm:mt-9"
         >
           <Button href={hrefOf(s.cta.href)} variant="pulse" icon={isTel ? <Phone className="size-4" /> : undefined}>
             {isTel ? `${s.cta.label} · ${clinic.phones.emergency}` : s.cta.label}
           </Button>
           {s.secondary && (
-            <Button href={s.secondary.href} variant={dark ? "outline-light" : "ghost"}>
-              {s.secondary.label}
-            </Button>
+            <span className="hidden sm:contents">
+              <Button href={s.secondary.href} variant={dark ? "outline-light" : "ghost"}>
+                {s.secondary.label}
+              </Button>
+            </span>
           )}
         </motion.div>
       </div>
